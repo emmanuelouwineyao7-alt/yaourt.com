@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YaourtMa — Yaourts Frais du Togo</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Feuille de styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     SPLASH SCREEN (page d'accueil animée)
+══════════════════════════════════════════ -->
+<div id="splash">
+  <div class="splash-bg"></div>
+  <div class="splash-rings"></div>
+  <div class="splash-rings"></div>
+  <div class="splash-rings"></div>
+  <div class="splash-emoji">🥛</div>
+  <div class="splash-logo">Yaourt<span>Ma</span></div>
+  <div class="splash-tagline">Artisanal · Frais · Togo</div>
+  <div class="splash-bar">
+    <div class="splash-bar-fill"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     BOUTON WHATSAPP FLOTTANT
+══════════════════════════════════════════ -->
+<a href="https://wa.me/22892332743?text=Bonjour%20YaourtMa%20!%20Je%20voudrais%20commander."
+   target="_blank"
+   class="wa-float"
+   title="Commander via WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+  </svg>
+</a>
+
+<!-- ══════════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════════ -->
+<nav id="nav">
+  <div class="nav-logo">Yaourt<span>Ma</span></div>
+
+  <ul class="nav-links">
+    <li><a href="#produits">Produits</a></li>
+    <li><a href="#pourquoi">À propos</a></li>
+    <li><a href="#commander">Commander</a></li>
+    <li><a href="#temoignages">Avis</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <a href="https://wa.me/22892332743?text=Bonjour%20!%20Commander%20maintenant."
+     target="_blank"
+     class="nav-btn">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+    Commander
+  </a>
+
+  <div class="hamburger" id="ham">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<section id="hero">
+  <div class="kente-strip top"></div>
+  <div class="hero-circle hc1"></div>
+  <div class="hero-circle hc2"></div>
+  <div class="hero-circle hc3"></div>
+  <span class="fruit">🥭</span>
+  <span class="fruit">🍓</span>
+  <span class="fruit">🍍</span>
+  <span class="fruit">🥥</span>
+  <span class="fruit">🌸</span>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">🌍 Fait au Togo · 100% Artisanal</div>
+    <h1 class="hero-title">
+      Yaourts<br>
+      <span class="line2">Frais &</span>
+      <span class="line3">Savoureux</span>
+    </h1>
+    <p class="hero-sub">
+      Préparés chaque avec du lait en poudre premium, des fruits frais et tout l'amour
+      de nos producteurs togolais. Commandez facilement via WhatsApp.
+    </p>
+    <div class="hero-btns">
+      <a href="https://wa.me/22892332743?text=Bonjour%20YaourtMa%20!%20Je%20veux%20commander."
+         target="_blank"
+         class="btn-hero-wa">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+        Commander via WhatsApp
+      </a>
+      <a href="#produits" class="btn-hero-ghost">Voir nos saveurs ↓</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-pot" style="position:relative;">
+      🥛
+      <div class="orbit-badge ob1">
+        <span class="ob-icon">🌿</span>
+        <div>
+          <div class="ob-val">100%</div>
+          <div style="font-size:0.68rem;color:#8B5E3C;">Naturel</div>
+        </div>
+      </div>
+      <div class="orbit-badge ob2">
+        <span class="ob-icon">⚡</span>
+        <div>
+          <div class="ob-val">&lt; 2h</div>
+          <div style="font-size:0.68rem;color:#8B5E3C;">Livraison</div>
+        </div>
+      </div>
+      <div class="orbit-badge ob3">
+        <span class="ob-icon">⭐</span>
+        <div>
+          <div class="ob-val">4.9/5</div>
+          <div style="font-size:0.68rem;color:#8B5E3C;">Avis clients</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-badges">
+      <div class="hero-badge-item"><div class="badge-val">500+</div><div class="badge-lbl">Clients</div></div>
+      <div class="hero-badge-item"><div class="badge-val">6</div><div class="badge-lbl">Saveurs</div></div>
+      <div class="hero-badge-item"><div class="badge-val">7j/7</div><div class="badge-lbl">Ouvert</div></div>
+    </div>
+  </div>
+
+  <div class="kente-strip"></div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     BANDEAU DÉFILANT
+══════════════════════════════════════════ -->
+<div class="marquee-wrap">
+  <div class="marquee-track" id="mtrack">
+    <span class="marquee-item"><span class="marquee-dot"></span>Yaourt Nature</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Yaourt Fraise 🍓</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Yaourt Mangue 🥭</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Yaourt Bissap 🌺</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Yaourt Coco 🥥</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Yaourt Gingembre 🫚</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Livraison rapide 🛵</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Sans conservateurs ✅</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Fait au Togo 🇹🇬</span>
+    <!-- Doublon pour boucle infinie -->
+    <span class="marquee-item"><span class="marquee-dot"></span>Yaourt Nature</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Yaourt Fraise 🍓</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Yaourt Mangue 🥭</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Yaourt Bissap 🌺</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Yaourt Coco 🥥</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Yaourt Gingembre 🫚</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Livraison rapide 🛵</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Sans conservateurs ✅</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Fait au Togo 🇹🇬</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PRODUITS
+══════════════════════════════════════════ -->
+<section id="produits">
+  <div class="prod-header fade">
+    <span class="section-eyebrow">Nos saveurs</span>
+    <h2 class="section-title">Choisissez votre préféré</h2>
+    <p class="section-sub">6 recettes exclusives élaborées avec les meilleurs fruits locaux du Togo et d'Afrique de l'Ouest.</p>
+  </div>
+
+  <div class="prod-grid">
+
+    <!-- Nature -->
+    <div class="prod-card c-nature fade">
+      <div class="prod-top"><span class="prod-emoji">🥄</span></div>
+      <div class="prod-ribbon">Bestseller</div>
+      <div class="prod-body">
+        <div class="prod-name">Nature Crémeux</div>
+        <div class="prod-desc">Le classique revisité — lait entier frais, ferments lactiques naturels. Doux, onctueux, sans sucre ajouté.</div>
+        <div class="prod-footer">
+          <div class="prod-price">500 FCFA <small>/ pot</small></div>
+          <a href="https://wa.me/22892332743?text=Bonjour%20!%20Je%20voudrais%20commander%20du%20Yaourt%20Nature." target="_blank" class="btn-wa-small">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Commander
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fraise -->
+    <div class="prod-card c-fraise fade">
+      <div class="prod-top"><span class="prod-emoji">🍓</span></div>
+      <div class="prod-body">
+        <div class="prod-name">Fraise du Jardin</div>
+        <div class="prod-desc">De vraies fraises mixées à froid pour préserver tout leur arôme. Acidulé, fruité, irrésistible.</div>
+        <div class="prod-footer">
+          <div class="prod-price">600 FCFA <small>/ pot</small></div>
+          <a href="https://wa.me/22892332743?text=Bonjour%20!%20Je%20voudrais%20commander%20du%20Yaourt%20Fraise." target="_blank" class="btn-wa-small">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Commander
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mangue -->
+    <div class="prod-card c-mangue fade">
+      <div class="prod-top"><span class="prod-emoji">🥭</span></div>
+      <div class="prod-ribbon vert">Nouveau</div>
+      <div class="prod-body">
+        <div class="prod-name">Mangue Tropicale</div>
+        <div class="prod-desc">La reine des fruits d'Afrique de l'Ouest dans votre yaourt. Sucrée, parfumée, profondément estivale.</div>
+        <div class="prod-footer">
+          <div class="prod-price">650 FCFA <small>/ pot</small></div>
+          <a href="https://wa.me/22892332743?text=Bonjour%20!%20Je%20voudrais%20commander%20du%20Yaourt%20Mangue." target="_blank" class="btn-wa-small">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Commander
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bissap -->
+    <div class="prod-card c-bissap fade">
+      <div class="prod-top"><span class="prod-emoji">🌺</span></div>
+      <div class="prod-ribbon">Spécial Togo</div>
+      <div class="prod-body">
+        <div class="prod-name">Bissap (Hibiscus)</div>
+        <div class="prod-desc">Infusion d'hibiscus local au cœur du yaourt. Légèrement acidulé, profondément africain et magnifiquement violet.</div>
+        <div class="prod-footer">
+          <div class="prod-price">650 FCFA <small>/ pot</small></div>
+          <a href="https://wa.me/22892332743?text=Bonjour%20!%20Je%20voudrais%20commander%20du%20Yaourt%20Bissap." target="_blank" class="btn-wa-small">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Commander
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coco -->
+    <div class="prod-card c-coco fade">
+      <div class="prod-top"><span class="prod-emoji">🥥</span></div>
+      <div class="prod-ribbon vert">Populaire</div>
+      <div class="prod-body">
+        <div class="prod-name">Noix de Coco</div>
+        <div class="prod-desc">Lait de coco pressé à froid mélangé à notre yaourt artisanal. Onctueux, exotique, une douceur tropicale rare.</div>
+        <div class="prod-footer">
+          <div class="prod-price">700 FCFA <small>/ pot</small></div>
+          <a href="https://wa.me/22892332743?text=Bonjour%20!%20Je%20voudrais%20commander%20du%20Yaourt%20Noix%20de%20Coco." target="_blank" class="btn-wa-small">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Commander
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gingembre -->
+    <div class="prod-card c-gingembre fade">
+      <div class="prod-top"><span class="prod-emoji">🫚</span></div>
+      <div class="prod-ribbon vert">Nouveau</div>
+      <div class="prod-body">
+        <div class="prod-name">Gingembre &amp; Miel</div>
+        <div class="prod-desc">La chaleur enveloppante du gingembre frais mariée au miel de nos producteurs. Tonique, puissant, unique.</div>
+        <div class="prod-footer">
+          <div class="prod-price">700 FCFA <small>/ pot</small></div>
+          <a href="https://wa.me/22892332743?text=Bonjour%20!%20Je%20voudrais%20commander%20du%20Yaourt%20Gingembre%20Miel." target="_blank" class="btn-wa-small">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Commander
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     POURQUOI NOUS CHOISIR
+══════════════════════════════════════════ -->
+<section id="pourquoi">
+  <div class="pourquoi-grid">
+    <div class="fade">
+      <span class="section-eyebrow">Notre différence</span>
+      <h2 class="section-title">Artisanal,<br>local et fier</h2>
+      <p class="section-sub">Nous soutenons les producteurs togolais en utilisant exclusivement des ingrédients locaux frais.</p>
+      <div class="kente-deco"></div>
+      <div class="feats">
+        <div class="feat">
+          <div class="feat-icon fi-sun">☀️</div>
+          <div class="feat-body">
+            <h4>Préparé chaque matin</h4>
+            <p>Nos yaourts sont fabriqués avant l'aube pour garantir une fraîcheur absolue à la livraison.</p>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon fi-green">🌿</div>
+          <div class="feat-body">
+            <h4>Zéro additif, zéro conservateur</h4>
+            <p>Seulement du lait local, des ferments naturels et les vrais fruits que vous reconnaissez.</p>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon fi-orange">🛵</div>
+          <div class="feat-body">
+            <h4>Livraison dans toute Kara</h4>
+            <p>Commandez via WhatsApp, confirmez votre adresse — on arrive chez vous en moins de 2 heures.</p>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon fi-teal">🇹🇬</div>
+          <div class="feat-body">
+            <h4>100% Made in Togo</h4>
+            <p>Chaque pot contribue à soutenir l'économie locale et les agriculteurs de notre région.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="big-pot-wrap fade">
+      <div class="big-pot">🫙
+        <div class="orbit-badge ob1">
+          <span class="ob-icon">🥛</span>
+          <div><div class="ob-val">Lait local</div><div style="font-size:0.68rem;color:#8B5E3C;">Frais chaque jour</div></div>
+        </div>
+        <div class="orbit-badge ob2">
+          <span class="ob-icon">🏆</span>
+          <div><div class="ob-val">+500</div><div style="font-size:0.68rem;color:#8B5E3C;">Clients fidèles</div></div>
+        </div>
+        <div class="orbit-badge ob3">
+          <span class="ob-icon">💚</span>
+          <div><div class="ob-val">100%</div><div style="font-size:0.68rem;color:#8B5E3C;">Naturel</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     COMMENT COMMANDER
+══════════════════════════════════════════ -->
+<section id="commander">
+  <div class="commander-inner">
+    <div class="commander-top fade">
+      <span class="section-eyebrow">Simple &amp; rapide</span>
+      <h2 class="section-title">Commander en 3 étapes</h2>
+      <p class="section-sub">Pas besoin d'appli, pas de compte. Juste WhatsApp et vous êtes servi.</p>
+    </div>
+    <div class="steps fade">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-icon-big">🛒</div>
+        <h3>Choisissez</h3>
+        <p>Parcourez nos 6 saveurs ci-dessus et notez ce que vous voulez commander avec la quantité.</p>
+        <span class="step-connector">→</span>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-icon-big">💬</div>
+        <h3>Envoyez</h3>
+        <p>Cliquez sur "Commander via WhatsApp". Un message pré-rempli s'ouvre — ajoutez votre adresse et envoyez !</p>
+        <span class="step-connector">→</span>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-icon-big">🛵</div>
+        <h3>Recevez</h3>
+        <p>On confirme votre commande et vous livrons en moins de 2 heures. Paiement à la livraison.</p>
+      </div>
+    </div>
+    <div class="commander-cta fade">
+      <a href="https://wa.me/22892332743?text=Bonjour%20YaourtMa%20!%20Je%20voudrais%20passer%20une%20commande.%20Voici%20ce%20que%20je%20voudrais%20:"
+         target="_blank"
+         class="big-wa-btn">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+        Commander maintenant via WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     TÉMOIGNAGES
+══════════════════════════════════════════ -->
+<section id="temoignages">
+  <div class="testi-header fade">
+    <span class="section-eyebrow">Avis clients</span>
+    <h2 class="section-title">Ils adorent YaourtMa</h2>
+    <p class="section-sub">Des centaines de familles à Lomé nous font confiance. Voici quelques-uns de leurs retours.</p>
+  </div>
+  <div class="testi-grid fade">
+    <div class="testi-card tc-1">
+      <div class="testi-quote">"</div>
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">Le yaourt bissap est une révélation ! Jamais goûté quelque chose d'aussi rafraîchissant. Mon mari et mes enfants se battent pour le dernier pot !</p>
+      <div class="testi-author">
+        <div class="t-avatar">👩🏾</div>
+        <div><div class="t-name">Akosua T.</div><div class="t-loc">Lomé, Hédzranawoé</div></div>
+      </div>
+    </div>
+    <div class="testi-card tc-2">
+      <div class="testi-quote">"</div>
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">Livraison ultra rapide, pot bien fermé, yaourt encore très frais. Le gingembre-miel est incroyable pour commencer la journée. Je recommande !</p>
+      <div class="testi-author">
+        <div class="t-avatar">👨🏾</div>
+        <div><div class="t-name">Kwame B.</div><div class="t-loc">Lomé, Agbalepedogan</div></div>
+      </div>
+    </div>
+    <div class="testi-card tc-3">
+      <div class="testi-quote">"</div>
+      <div class="testi-stars">★★★★☆</div>
+      <p class="testi-text">Commander sur WhatsApp c'est tellement simple ! En 10 minutes j'ai confirmé et 1h30 après j'avais mes pots. Service au top, produit délicieux.</p>
+      <div class="testi-author">
+        <div class="t-avatar">👩🏽</div>
+        <div><div class="t-name">Efua M.</div><div class="t-loc">Lomé, Bè Kpota</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     CONTACT
+══════════════════════════════════════════ -->
+<section id="contact">
+  <div class="contact-left fade">
+    <span class="section-eyebrow">Contactez-nous</span>
+    <h2 class="section-title">On est là<br>pour vous !</h2>
+    <p class="section-sub">Une question, une commande en gros, une suggestion ? Écrivez-nous ou appelez-nous directement.</p>
+    <div class="contact-ways">
+      <a href="https://wa.me/22892332743" target="_blank" class="cway wa-cway">
+        <div class="cw-ic ic-wa">📱</div>
+        <div>
+          <div class="cw-info-lbl">WhatsApp &amp; Téléphone</div>
+          <div class="cw-info-val">+228 92 33 27 43</div>
+        </div>
+      </a>
+      <a href="mailto:contact@yaourtma.tg" class="cway email-cway">
+        <div class="cw-ic ic-mail">✉️</div>
+        <div>
+          <div class="cw-info-lbl">Email</div>
+          <div class="cw-info-val">contact@yaourtma.tg</div>
+        </div>
+      </a>
+      <div class="cway">
+        <div class="cw-ic ic-loc">📍</div>
+        <div>
+          <div class="cw-info-lbl">Zone de livraison</div>
+          <div class="cw-info-val">Toute la ville de Kara</div>
+        </div>
+      </div>
+      <div class="cway">
+        <div class="cw-ic ic-time">🕐</div>
+        <div>
+          <div class="cw-info-lbl">Horaires de commande</div>
+          <div class="cw-info-val">Lun–Dimm : 6h00 – 19h00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form fade">
+    <h3>Envoyez-nous un message ✉️</h3>
+    <div id="cform">
+      <div class="fg-row">
+        <div class="fg">
+          <label for="fn">Prénom</label>
+          <input id="fn" type="text" placeholder="Kofi">
+        </div>
+        <div class="fg">
+          <label for="ln">Nom</label>
+          <input id="ln" type="text" placeholder="Mensah">
+        </div>
+      </div>
+      <div class="fg">
+        <label for="em">Email</label>
+        <input id="em" type="email" placeholder="vous@email.com">
+      </div>
+      <div class="fg">
+        <label for="su">Sujet</label>
+        <select id="su">
+          <option value="">Choisir un sujet…</option>
+          <option>Question sur un produit</option>
+          <option>Commande en gros / Revendeur</option>
+          <option>Problème de livraison</option>
+          <option>Partenariat</option>
+          <option>Autre</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label for="ms">Message</label>
+        <textarea id="ms" placeholder="Bonjour ! Je voudrais savoir…"></textarea>
+      </div>
+      <button class="btn-send" onclick="sendForm()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+          <path d="M22 2L11 13"/>
+          <path d="M22 2L15 22 11 13 2 9l20-7z"/>
+        </svg>
+        Envoyer le message
+      </button>
+    </div>
+    <div id="form-ok">
+      <div style="font-size:3rem;margin-bottom:10px">🎉</div>
+      <strong style="font-family:'Syne',sans-serif;font-size:1.1rem;display:block;margin-bottom:8px;color:var(--dark)">
+        Message reçu !
+      </strong>
+      Merci ! Nous vous répondons sous 24h.
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<div class="kente-footer"></div>
+<footer>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <div class="nav-logo">Yaourt<span style="color:var(--sun)">Ma</span></div>
+      <p>Yaourts artisanaux 100% naturels, préparés chaque matin avec amour. Commandez facilement sur WhatsApp.</p>
+      <div class="foot-social">
+        <a href="#" class="fsoc">📘</a>
+        <a href="#" class="fsoc">📸</a>
+        <a href="https://wa.me/22891000000" target="_blank" class="fsoc">💬</a>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h5>Navigation</h5>
+      <ul>
+        <li><a href="#produits">Nos produits</a></li>
+        <li><a href="#pourquoi">À propos</a></li>
+        <li><a href="#commander">Commander</a></li>
+        <li><a href="#temoignages">Avis</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>Saveurs</h5>
+      <ul>
+        <li><a href="#">Nature Crémeux</a></li>
+        <li><a href="#">Fraise du Jardin</a></li>
+        <li><a href="#">Mangue Tropicale</a></li>
+        <li><a href="#">Bissap (Hibiscus)</a></li>
+        <li><a href="#">Noix de Coco</a></li>
+        <li><a href="#">Gingembre &amp; Miel</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2025 YaourtMa · Kara, Togo 🇹🇬</span>
+    <span>Fait avec ❤️ pour les amoureux du bon yaourt</span>
+  </div>
+</footer>
+
+<!-- Scripts JavaScript — chargé en fin de body -->
+<script src="script.js"></script>
+
+</body>
+</html>
