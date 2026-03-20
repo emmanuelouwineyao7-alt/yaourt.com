@@ -430,6 +430,55 @@
       </div>
     </div>
   </div>
+
+  <div class="testi-form fade" id="testi-form">
+    <h3 class="testi-form-title">Donnez votre avis ⭐</h3>
+    <form id="tform">
+      <div class="testi-form-grid">
+        <div class="fg">
+          <label for="tname">Nom</label>
+          <input id="tname" type="text" placeholder="Votre nom">
+        </div>
+
+        <div class="fg">
+          <label for="tloc">Localisation (optionnel)</label>
+          <input id="tloc" type="text" placeholder="Ex: Lomé, Kara…">
+        </div>
+
+        <div class="fg">
+          <label for="trating">Note</label>
+          <select id="trating">
+            <option value="5" selected>5 - Excellent</option>
+            <option value="4">4 - Très bien</option>
+            <option value="3">3 - Bien</option>
+            <option value="2">2 - Moyen</option>
+            <option value="1">1 - Pas satisfait</option>
+          </select>
+        </div>
+
+        <div class="fg">
+          <label for="tmessage">Votre avis</label>
+          <textarea id="tmessage" placeholder="Dites-nous ce que vous avez aimé…"></textarea>
+        </div>
+      </div>
+
+      <button class="btn-send" type="submit">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+          <path d="M12 5v14"/>
+          <path d="M5 12h14"/>
+        </svg>
+        Publier mon avis
+      </button>
+
+      <div id="tform-ok">
+        <div style="font-size:3rem;margin-bottom:10px">🎉</div>
+        <strong style="font-family:'Syne',sans-serif;font-size:1.1rem;display:block;margin-bottom:8px;color:var(--dark)">
+          Merci pour votre avis !
+        </strong>
+        Votre témoignage a été ajouté sur cette page.
+      </div>
+    </form>
+  </div>
 </section>
 
 <!-- ══════════════════════════════════════════
@@ -466,7 +515,7 @@
         <div class="cw-ic ic-time">🕐</div>
         <div>
           <div class="cw-info-lbl">Horaires de commande</div>
-          <div class="cw-info-val">Lun–Dimm : 6h00 – 19h00</div>
+          <div class="cw-info-val">Lun–Dim : 6h00 – 19h00</div>
         </div>
       </div>
     </div>
@@ -529,7 +578,7 @@
 <footer>
   <div class="foot-top">
     <div class="foot-brand">
-      <div class="nav-logo">Yaourt<span style="color:var(--sun)">Ma</span></div>
+      <div class="nav-logo">Vita - <span style="color:var(--sun)">Délices</span></div>
       <p>Yaourts artisanaux 100% naturels, préparés chaque matin avec amour. Commandez facilement sur WhatsApp.</p>
       <div class="foot-social">
         <a href="#" class="fsoc">📘</a>

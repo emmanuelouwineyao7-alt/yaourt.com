@@ -115,3 +115,164 @@ function sendForm() {
   document.getElementById('cform').style.display = 'none';
   document.getElementById('form-ok').style.display = 'block';
 }
+
+/* ─────────────────────────────────────────────
+   TÉMOIGNAGES — formulaire + localStorage
+───────────────────────────────────────────── */
+var TESTI_STORAGE_KEY = 'yaourtma_testimonials_v1';
+var TESTI_MAX_ITEMS = 50;
+
+function getSafeStorageArray(key) {
+  try {
+    var raw = localStorage.getItem(key);
+    if (!raw) return [];
+    var parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function setSafeStorageArray(key, arr) {
+  try {
+    localStorage.setItem(key, JSON.stringify(arr));
+  } catch (e) {
+    // Si localStorage est bloqué, on évite juste de planter la page.
+  }
+}
+
+function starsFromRating(rating) {
+  var r = Number(rating);
+  if (!Number.isFinite(r)) r = 5;
+  r = Math.max(1, Math.min(5, r));
+  return '★'.repeat(r) + '☆'.repeat(5 - r);
+}
+
+function themeFromRating(rating) {
+  var r = Number(rating);
+  if (!Number.isFinite(r)) r = 5;
+  if (r >= 5) return 'tc-1';
+  if (r >= 4) return 'tc-2';
+  return 'tc-3';
+}
+
+function createTestimonialCard(t) {
+  var card = document.createElement('div');
+  card.className = 'testi-card ' + themeFromRating(t.rating);
+
+  var quote = document.createElement('div');
+  quote.className = 'testi-quote';
+  quote.textContent = '"';
+
+  var stars = document.createElement('div');
+  stars.className = 'testi-stars';
+  stars.textContent = starsFromRating(t.rating);
+
+  var text = document.createElement('p');
+  text.className = 'testi-text';
+  text.textContent = t.message;
+
+  var author = document.createElement('div');
+  author.className = 'testi-author';
+
+  var avatar = document.createElement('div');
+  avatar.className = 't-avatar';
+  var nameTrim = (t.name || '').trim();
+  avatar.textContent = nameTrim ? nameTrim.charAt(0).toUpperCase() : '👤';
+
+  var info = document.createElement('div');
+
+  var nameEl = document.createElement('div');
+  nameEl.className = 't-name';
+  nameEl.textContent = nameTrim || 'Client';
+
+  var locEl = document.createElement('div');
+  locEl.className = 't-loc';
+  locEl.textContent = (t.location || '').trim();
+
+  if (!locEl.textContent) {
+    locEl.style.display = 'none';
+  }
+
+  info.appendChild(nameEl);
+  info.appendChild(locEl);
+  author.appendChild(avatar);
+  author.appendChild(info);
+
+  card.appendChild(quote);
+  card.appendChild(stars);
+  card.appendChild(text);
+  card.appendChild(author);
+
+  return card;
+}
+
+(function initTestimonials() {
+  var grid = document.querySelector('#temoignages .testi-grid');
+  var form = document.getElementById('tform');
+  if (!grid || !form) return;
+
+  var okEl = document.getElementById('tform-ok');
+  var nameEl = document.getElementById('tname');
+  var locEl = document.getElementById('tloc');
+  var ratingEl = document.getElementById('trating');
+  var msgEl = document.getElementById('tmessage');
+
+  function sanitizeField(str, maxLen) {
+    return String(str || '').trim().slice(0, maxLen);
+  }
+
+  function renderStoredTestimonials() {
+    var arr = getSafeStorageArray(TESTI_STORAGE_KEY);
+    arr.forEach(function (t) {
+      if (!t || !t.message || !t.name) return;
+      grid.appendChild(createTestimonialCard(t));
+    });
+  }
+
+  renderStoredTestimonials();
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    if (!nameEl || !ratingEl || !msgEl) return;
+
+    var name = sanitizeField(nameEl.value, 40);
+    var location = sanitizeField(locEl ? locEl.value : '', 60);
+    var rating = sanitizeField(ratingEl.value, 2);
+    var message = sanitizeField(msgEl.value, 600);
+
+    if (!name || !message) {
+      alert('Merci de remplir au minimum votre nom et votre avis.');
+      return;
+    }
+
+    var stored = getSafeStorageArray(TESTI_STORAGE_KEY);
+
+    var testimonial = {
+      id: String(Date.now()) + '-' + String(Math.random()).slice(2),
+      name: name,
+      location: location,
+      rating: Number(rating),
+      message: message,
+      createdAt: new Date().toISOString()
+    };
+
+    stored.push(testimonial);
+    if (stored.length > TESTI_MAX_ITEMS) {
+      stored = stored.slice(stored.length - TESTI_MAX_ITEMS);
+    }
+
+    setSafeStorageArray(TESTI_STORAGE_KEY, stored);
+
+    grid.appendChild(createTestimonialCard(testimonial));
+
+    if (okEl) okEl.style.display = 'block';
+    form.reset();
+
+    // Cache le message après quelques secondes.
+    window.setTimeout(function () {
+      if (okEl) okEl.style.display = 'none';
+    }, 5000);
+  });
+})();
